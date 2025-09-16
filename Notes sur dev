@@ -1,0 +1,29 @@
+ Notes sur dev
+
+
+En utilisant chrome en local pour implémenter AudioContext.
+j'avais l'erreur de Chrome :
+index.html:1 Access to fetch at 'file:///Users/Guy%201/Dropbox/Guy/Documents/Code%20Guy/Javascript/Dev_JS_Guy/MISpianoMp3/Piano.pp.E3.mp3' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app.
+
+____
+Chat GPT : tu essaies de la charger avec fetch() ou AudioContext.decodeAudioData(), mais les navigateurs bloquent ce genre d'accès local à cause des politiques de sécurité CORS (Cross-Origin Resource Sharing).
+La solution : lancer un petit serveur local
+Pour contourner ça, il faut que tu serves ton projet depuis un serveur HTTP local, même tout simple.
+
+1. VS Code + Live Server
+Si tu utilises Visual Studio Code :
+
+Installe l’extension Live Server
+
+Clique droit sur index.html → "Open with Live Server"
+
+2. Node.js + http-server
+Si tu as Node.js installé :
+bash
+Copier
+Modifier
+npm install -g http-server
+http-server
+______
+J'ai opté pour la solution 1, et installé Cherche Live Server (par Ritwick Dey). Cette première erreur a disparu (OK)
+

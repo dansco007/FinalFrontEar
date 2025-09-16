@@ -1,0 +1,1159 @@
+:root { /* Racine du document --> endroit pour déclarer des variables */
+    /* déclaration d'une 'custom property' (uilisable avec var(--strDisplayQuestionWidth)) */
+    --tileMargin: 1px;
+    --tileWidth: auto;
+    --tileFontSize: 1.2em;  
+    --tileSmallFontSize: 1.2em;
+    --tileBgColor: #f1eded;
+    --tileNoteNamePadding : 4px 8px 2px;
+    --smallFontSize: 0.8em;
+    --cardBgColor:#f6f6f6fd;
+    --backColor: #ffffff;
+    --displayHeight : 66px;
+    --brightFontColor: white;
+    --darkFontColor: black;
+    --smallTileWidth: 200px;
+    --playNoteButtonBgColor: white ; /* rgb(241, 239, 239); */
+    --buttonType1BgColor: white; /* rgb(197, 197, 185); */
+    --orange: #ee7f00;
+    --labelWidth: auto;
+    --answerButtBackColor: #f9f9fb;
+    --correctAnswerButtColor: #529a05;
+    --incorrectAnswerButtColor: #d85d5d;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--backColor);
+    font-family: 'Source Sans Pro', sans-serif;
+    
+    line-height: 1.4em;
+    margin: 0;
+    height: 100%;
+    opacity: 0; /* au départ le body est invisible (pendant le chargement) */
+    transition: opacity 0.3s ease-in-out;
+    min-width: 100px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+.logoDiv {
+    position: absolute;
+    /* width: 100px; */
+    /* height: 100px; */
+    top: 38px;
+    left: -6%;
+    pointer-events: none;
+}
+
+
+.logo {
+    /* position: absolute; */
+    padding: 0;
+    margin: 0;
+    height: auto;
+    width: auto;
+    transform: scale(0.3);
+}
+
+#titres {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--orange);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#title1 {
+    font-weight: lighter;
+    color: var(--brightFontColor); 
+    font-size: 1.6em;
+    width: 100%;
+    margin: 15px 0px;
+    line-height: 1em;
+}
+
+#title2 {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    font-weight: lighter;
+    color: var(--brightFontColor);
+    font-size: 1em;
+    margin: 10px 0px 10px;
+    white-space: normal;
+    width: 100%;
+}
+
+.settingFieldset {
+    border-width: 1px;
+    border-style: groove;
+    border-color: rgb(192, 192, 192);
+    color: var(--darkFontColor);
+    font-size: var(--smallFontSize);
+    margin: 5px 25px;
+    line-height: 1.4em;
+    position: relative;
+}    
+
+.modeButton {
+    cursor: pointer;
+    margin: 0px 10px;
+    padding: 2px 0px 2px 0px;
+    border-radius: 15px;
+}
+
+.modeButton:hover {
+    border-width: 0.5px;
+    border-style: solid;
+    background-color: rgb(255,255,255,.2);
+}
+  
+.modeButton:active {
+    transform: scale(0.93);
+  }
+
+.modeButtonTxt {
+    border-color: var(--backColor);
+    white-space: nowrap;
+    margin: 0px 8px;
+    padding: 2px 5px 2px 5px;
+}
+
+.currentMode {
+    border-width: 0.5px;
+    border-style: solid;
+}
+
+p {
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.input{
+    background-color: #ee7f00;
+}
+
+.layer2Div {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 60px;
+    left: 8px;
+    transform: scale(0.3);
+}
+
+#mainDiv, #secondaryDiv {
+    /* Affichage en tant que flexbox, les éléments sont alignés verticalement */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+#manualDiv {
+    /* Affichage en tant que flexbox, les éléments sont alignés en bas */
+    display: flex;
+    font-size: 1.3em;
+    align-items: flex-end;
+    margin: 20px;
+    justify-content: center;
+}
+
+#manualTxtDiv {
+    font-size: 0.6em;
+    color: var(--darkFontColor);
+    text-align: center;
+    white-space: nowrap;
+    line-height: 1.6;
+}
+
+.buttonType1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* font-family: 'Open Sans', sans-serif; */
+    color: var(--darkFontColor);
+    background-color: var(--buttonType1BgColor);
+    height: 30px;
+    padding: 0px 10px;
+    transition: 0.1s;
+    border-width: 0.6px;
+    border-color: silver;
+    opacity: 1;
+}
+
+.close {
+    height: 10px;
+    width: 5px;
+    margin: 3px -3px 1px 0px;
+    padding: 5px;
+}
+
+.nav {
+    font-size: 1em;
+}
+
+.restart {
+    font-size: .8em;
+    margin: 0px 15px;
+}
+
+.showSetting {
+    /* font-size: .7em; */
+    color:rgb(184, 101, 1);
+    border-radius: 13px;
+    border-width: 1px;
+    transition: 0.1s;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.left {
+    justify-content: flex-start;
+}
+
+.right {
+    justify-content: flex-end;
+}
+
+.vCenter {
+    align-items: center;
+}
+
+.activated {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.deactivated {
+    cursor: default;
+    pointer-events: none;
+}
+
+.greyedOut {
+    opacity: 0.33;
+}
+
+.answerButton {
+    color: var(--darkFontColor);
+    height: 30px;
+    padding: 0px 10px;
+    font-size: 0.8em;
+    white-space: nowrap;
+    background-color: var(--answerButtBackColor);
+    border-width: 0.5px;
+    border-color:silver;
+    cursor: pointer;
+    margin: 0px 5px 7px 5px;
+}
+
+.correct {
+    background-color: var(--correctAnswerButtColor);
+    border-color:var(--correctAnswerButtColor);
+    /* border-color:#49e255; */
+    color: white;
+}
+
+.incorrect {
+    background-color: var(--incorrectAnswerButtColor);
+    color: white;
+    border-color:var(--incorrectAnswerButtColor);
+    border-radius: 30px;
+    border-width: 2.5px;
+    box-shadow: 0px 0px 20px -7px --incorrectAnswerButtColor;
+}
+
+.solution {
+    border-width: 2.5px;
+    border-color: var(--correctAnswerButtColor);
+    /* border-color:#49e255; */
+    border-radius: 30px;
+    display: block;
+    box-shadow: 0px 0px 20px -7px #49e255;
+}
+
+#displayQuestion {
+    display: flex; 
+    /* width: var(--displayWidth); */
+    justify-content: center;
+    background-color: var(--backColor);  
+    text-align: center;
+    height: var(--displayHeight);
+    margin-top: 15px;
+}
+
+#startAndTargetNotesDiv {
+    display: flex; 
+    flex-direction: column;
+}
+
+#playAndNavDiv {
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* width: var(--displayWidth); */
+    margin: 2px 0px;
+}
+
+#answersDiv {
+    display: flex; 
+    justify-content: center;
+    text-align: center;
+    /* width: var(--displayWidth); */
+    margin: 15px 0 1px 0px;
+}
+
+#navButtonsDiv {
+    display: flex; 
+    justify-content: center;
+    background-color: var(--playNoteButtonBgColor);
+}
+
+#answerButtonsDiv {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.1s;
+}
+
+.intervalButtonContainer {
+    display: flex; 
+    justify-content: space-between;
+}
+
+.intervalSusContainer {
+    display: flex;
+    margin: 3px;
+}
+
+.scoreDiv {
+    background-color: var(--backColor);
+    border: solid;
+    justify-content: center;
+    border-width: 1px;
+    border-color:orange;
+    width: auto; /* 125px; */
+    padding: 4px 21px;
+    margin: 0px 15px;
+    border-radius: 13px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.scoreTxt {
+    font-size: 1em;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer; /* optionnel */
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: max-content;
+  background-color: #faeed1;
+  color: black;
+  text-align: center;
+  border-radius: 8px;
+  padding: 5px 12px;
+  position: absolute;
+  z-index: 1;
+  bottom: 90%; /* au-dessus du bouton */
+  left: 0%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  font-size: 0.8em;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.time {
+    font-size: var(--smallFontSize);
+    padding: 2px 1px 0px 10px;
+}
+
+.previousNoteDiv, .targetNoteDiv, .counterDiv, .cardDiv {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--tileBgColor);
+    padding: 0px 10px;
+    margin: var(--tileMargin);
+    cursor: pointer;
+    width: var(--tileWidth);
+    transition: 0.1s;
+    align-items: center;
+}
+
+.previousNoteDiv, .targetNoteDiv {
+    justify-content: start;
+}
+
+.previousNoteDiv:hover, .targetNoteDiv:hover, .counterDiv:hover, .cardDiv:hover, .answerButton:hover, .scoreDiv:hover, .showSetting:hover {
+    transform: scale(0.96);  
+    box-shadow: 0 0 4px 0px var(--orange);
+} 
+
+.prevNameDiv, .targetNameDiv, .counterNumberDiv {
+    display: flex;
+    font-size: var(--tileFontSize);
+    padding: var(--tileNoteNamePadding);
+}
+
+.counterDiv {
+    background-color: #d1dff3;
+}
+
+.counterNumberDiv {
+    padding: 0px;
+}
+
+#cardDiv {
+    display:flex;
+    background-color: var(--cardBgColor);
+    /* padding: 0px 5px; */
+    margin: var(--tileMargin);
+    /* width: 800px; */
+}
+
+.scaleStructureDiv {
+    font-size: var(--smallFontSize);
+}
+
+.hidden {
+    display: none;
+}
+
+#scoreAnalysisOverlayedDiv {
+/* display: flex; */
+  position: fixed;
+  top: 0vh;
+  /* left: 0vw; */
+  /* width: 80vw;
+  height: 80vh; */
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(212, 134, 24, 0.15);
+  /* align-items: center; */
+
+  justify-content: center;
+  z-index: 10000;
+}
+
+#popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: white;
+    padding: 20px 20px;
+    border-radius: 10px;
+    width: 80vw;
+
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    position: relative;
+}
+
+#popupTitleDiv {
+    text-align: center;
+}
+
+#popupContentDiv {
+    display: flex;
+    justify-content: space-around;
+}
+
+#popupContentTxtDiv {
+    text-align: left;
+    height: auto;
+    width: 100%;
+    max-height: 500px; /* Définir une hauteur fixe */
+    overflow-y: auto; /* Activer le défilement vertical */
+    /* padding: 40px; */
+    padding: 5px 15px 5px 0px;
+    /* margin: 5px, 40px, 5px, 5px; */
+}
+
+#closePopup {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cardNameDiv {
+    font-size: 1.3em;
+    padding: var(--tileNoteNamePadding);
+    text-align: center;
+    white-space: nowrap; 
+    height: auto;
+}
+
+.objectStructureDiv {
+    font-size: .8em;
+    text-align: center;
+    white-space: nowrap; 
+    height: auto;
+    padding: 0px 0px 2px;
+}
+
+.tiretDiv, .arrowDiv {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--darkFontColor);
+    background-color: var(--backColor);
+    font-size: 1.5em;
+    margin: var(--tileMargin);
+    height: var(--displayHeight);
+    padding: 0px 8px;
+}
+
+.octaveTranspoDiv {
+    color: var(--darkFontColor);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--backColor);
+    padding: 0px 5px;
+    margin: var(--tileMargin);
+    cursor: pointer;
+}
+
+.octaveTranspoTextDiv {
+    font-size: 1.3em;
+    margin-top: 0px;
+    padding: var(--tileNoteNamePadding);
+    white-space: nowrap; 
+}
+
+.replacementDiv {
+    font-size: 1.5em;
+    vertical-align: middle;
+}
+
+.labels {
+    font-size: var(--smallFontSize);
+    /* text-align: center; */
+    white-space: nowrap;
+    padding: 1px 5px 0px;
+    width: var(--labelWidth);
+}
+
+legend{
+    white-space: nowrap;
+}
+
+.commentLabels {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 12px;
+    font-size: var(--smallFontSize);
+    /* width : var(--displayWidth); */
+    white-space: nowrap;
+    padding: 1px 0px 0px; 
+    color: orange
+}
+
+.separator1 {
+    height: 10px;
+    width: 30px;
+}
+
+/* ____________________ Custom Checkbox ___________________________________________ */
+
+/* Style du span qui sert de faux bouton */
+.checkmark {
+    width: 11px;
+    height: 11px;
+    border: 1px solid #000; /* bordure noire */
+    display: inline-block;
+    border-radius: 3px; /* arrondi si vous le souhaitez */
+    background-color: transparent;
+    vertical-align: middle;
+    cursor: pointer;
+    /* position: relative; */
+    margin-right: 8px;
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    /* width: 3px;
+    height: 7px; */
+}
+
+/* La coche quand cochée */
+input[type="checkbox"]:checked + .checkmark {
+    background-color: #000; /* fond noir quand coché */
+}
+
+/* La coche (la tige) */
+input[type="checkbox"]:checked + .checkmark::after {
+    content: "";
+    border: solid #fff; /* couleur de la coche (blanc) */
+    border-width: 0 2px 2px 0;
+    transform: rotate(40deg);
+    margin-right: 8px;
+    position: absolute;
+    left: 3px;
+    top: 0px;
+    width: 3px;
+    height: 7px;
+}
+
+input[type="checkbox"].disabled + .checkmark {
+    opacity: 0.2;
+    cursor: not-allowed;
+    background-color: #c2c2c2; /* fond noir quand coché */
+}
+
+
+.checkbox-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.nativeCheckbox{
+    display: none;
+}
+
+.custom-checkbox {
+  display: inline-flex; 
+  align-items: center;
+  position: relative; 
+  margin-top: 2px;
+}
+
+.customChkLabelText {
+  margin-left: 23px; /* décalage horizontal */
+
+}
+
+/* _______________________________________________________________ */
+/* ____________________ Custom Radio buttons ___________________________________________ */
+
+/* Cacher le bouton radio natif */
+input[type="radio"].custom-radio {
+  appearance: none; /* Fonctionne dans la plupart des navigateurs modernes */
+  -webkit-appearance: none; /* Chrome/Safari */
+  background-color: transparent;
+  border: 1px solid rgb(112, 112, 112); /* Bordure noire */
+  /* border-width: 0.2em; */
+  border-radius: 50%; /* Rond */
+  width: 14px; /* Taille du cercle */
+  height: 14px;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  margin-right: -10px; /* un peu d’espace si tu veux */
+}
+
+/* La coche ou le point quand c’est sélectionné */
+input[type="radio"].custom-radio:checked::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: black; /* Point noir intérieur */
+}
+
+/* _______________________________________________________________ */
+
+#test {
+    background-color: #aa920a;
+    background-color: #c52a2a;
+    background-color: #b42695;
+    background-color: #4e2ac5;
+    background-color: #2681b6;
+    background-color: #25a334;
+    background-color: #424d01;
+    background-color: #1a1926;
+}
+
+#settingsDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.settingsLabel {
+    font-size: 0.9em;
+    padding: 3px;
+    color: var(--darkFontColor);
+    padding-right: 20px;
+    margin-right: 50px;
+}
+
+.binaryContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonShowDiv, .buttonCloseDiv {
+    display : flex;
+    text-align: center;
+    width: 100%;
+    padding : 0px 0px 0px 2px;
+}
+
+#buttonShowRegisterDiv {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#registerContainer {
+    /* margin-top: 4.5px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1em;
+    justify-content: center;
+}
+
+#registerLimitsLabel{
+    font-size: var(--smallFontSize);
+    white-space: nowrap;
+    color: var(--darkFontColor);
+    margin-bottom: 10px;
+}
+
+#register {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    /* font-size: var(--smallFontSize); */
+}
+
+.registerLimits {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 3px;
+    width: 33px;
+}
+
+.registerNoteDiv {
+    background-color: var(--cardBgColor);
+    margin: var(--tileMargin);
+    cursor: pointer;
+}
+
+.registerNoteNameDiv {
+    /* font-size:  0.8em; */
+    padding: 10px 4px 10px;
+    text-align: center;
+    background-color: var(--cardBgColor);
+}
+
+.registerButtonLimitDiv {
+    display:flex;
+    justify-content:center;
+    background-color: rgb(255, 166, 0, .9);
+    padding: 0;
+    margin: var(--tileMargin);
+    cursor: pointer;
+}
+
+.registerLabels {
+    /* font-size: var(--smallFontSize); */
+    white-space: nowrap; 
+    color: var(--darkFontColor);
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+.limitButtonTxtDiv{
+    color: var(--brightFontColor);
+}
+
+.registerMsgDiv {
+    display: none;
+    align-items: center;
+    justify-content:center;
+    white-space:normal; 
+    padding : 3px 0px 0px 5px;
+    width: 70px;
+    line-height: 1.2;
+}
+
+#registerMsgTxtDiv {
+    color: rgb(228, 87, 77);
+    font-size: var(--smallFontSize);
+    text-align: center;
+}
+
+#buttonShowSoundSelectDiv {
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+}
+
+#soundAndOptionsDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+#soundSelectionDiv {
+    display: flex;
+    flex-direction: column;
+    /* margin: 0px 0px 0px 1px; */
+    line-height: 1em;
+}
+
+#soundSelectFieldSet {
+    font-size: var(--smallFontSize);
+    margin-top: 3px
+}
+
+.fieldSet {
+    column-count: 2;
+}
+
+.radioButLabel {
+    display: flex;
+    margin: 4px 0px 0px 20px;
+}
+
+.radioBut {
+    display: flex;
+}
+
+.options {
+    margin: 5px 0px 0px 0px;
+    line-height: 1em;
+}
+
+.optionCheck {
+    display: flex;
+    font-size: var(--smallFontSize);
+    margin-top: 2px;
+    margin-left: 1px;
+}
+
+#speedSettingDiv {
+    margin-left: 24px;
+}
+
+/* #noteSustainSettingDiv {
+    margin-left: 21px;
+} */
+
+#decSpeedDiv {
+    margin-left: 2px;
+}
+
+#respectLILDiv {
+    display: flex;
+    flex-direction: column;
+    /* font-size: 0.9em; */
+    width: 100px;
+    text-align: center;
+    align-items: center;
+    margin: 10px 0px 10px 0px;
+    white-space: normal;
+}
+
+.optionSettingLabel{
+    /* font-size: var(--smallFontSize); */
+    white-space: nowrap; /* éviter le retour à la ligne */
+    /* background-color: var(--backColor); */
+    color: var(--darkFontColor);
+    margin: 0px 5px 0px 0px;
+    padding: 0px 5px 0px 0px;
+}
+
+.tempo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* justify-content: start; */
+    margin: 0px 0px 0px 0px;
+    align-items: flex-end;
+}
+
+.optionSettingDiv {
+    display: flex;
+    font-size: var(--smallFontSize);
+    margin: 0px 5px 0px 0px;
+    /* justify-content:start; */
+}
+
+.tempoButtonDiv {
+    display: flex;
+    align-items: center;
+    height: auto;
+}
+
+#tempoSetButtonDiv {
+    justify-content:center;
+    background-color: rgb(255, 166, 0, .9); /* var(--orange);  */
+    padding: 0;
+    margin: 10px 10px;
+    cursor: pointer;
+}
+
+.tempoButtonTxtDiv {
+    display:flex;
+    justify-content:center;
+    font-size: 1em;
+    font-weight: 500;
+    background-color: rgb(255, 166, 0, .9); 
+    padding: 0px 3px;
+    width: 10px;
+    vertical-align: middle;
+    height: auto;
+    cursor: pointer;
+    color: white;
+}
+
+.tempoBpm {
+    padding: 0px 6px 0px;
+    text-align: center;
+    background-color: var(--cardBgColor);
+    height: auto;
+    width: 44px;
+}
+
+#LagInMsDivTxtDiv {
+    white-space: nowrap;
+} 
+
+#noteSustainInMsDivTxtDiv {
+    white-space: nowrap;
+} 
+
+#buttonPickDiv {
+    /* Affichage en tant que flexbox, les éléments sont alignés en bas et la marge droite est de 20 pixels */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 3px 3px 5px;
+}
+
+.pickCardButton {
+    margin: 0px 3px 0px;
+    padding: 15px 30px;
+    white-space: nowrap;
+    transition: 0.1s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 30px;
+    display: block;
+    border: 0px;
+    width: 144px;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+    /* cursor: pointer; */
+    user-select: none;
+    /* -webkit-user-select: none; */
+    touch-action: manipulation;
+    /* font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif; */
+    font-weight: lighter;
+    font-size: 0.9em;
+}
+  
+.pickCardButton:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+}
+  
+.pickCardButton:active {
+    transform: scale(0.93);
+}
+
+#buttonHearAgainDiv {
+    /* Affichage en tant que flexbox, les éléments sont alignés en bas et la marge droite est de 20 pixels */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 0px 3px 0px;
+}
+.buttonHearAgain {
+    margin: 0px;
+    padding: 2px 12px;
+    transition: 0.1s;
+    color: #6f276f;
+    background-color: var(--backColor);
+    border-radius: 15px;
+    display: block;
+    border-width: 0.6px;
+    border-color: silver;
+    /* font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif; */
+    font-weight: light;
+    font-size: var(--smallFontSize);
+}
+
+.closeFieldSet {
+  position: absolute;
+  bottom : 1px;
+  right: 6px;
+  font-size: 1.4em;
+  cursor: pointer;
+  color: #333;
+}
+
+
+  /* "Media Query" */
+    /* Pas moyen d'utiliser une custom property dans une media query
+    https://bholmes.dev/blog/alternative-to-css-variable-media-queries/
+    @media (max-width: var(--strDisplayQuestionWidth)) { */
+
+/* pour mettre en colonnes à partir d'une taille mini de la fenetre */
+@media (max-width: 700px) { 
+    /* @media screen and (min-width: 30em) { */
+    /* @media screen and (-webkit-min-device-pixel-ratio: 1),
+            and (min-device-width: 1000px), 
+            and (max-device-width: 1600px) { */
+
+        #title1 {
+            font-size: 1.5em;
+            margin: 6px 0px;
+        }
+        .modeButton {
+            cursor: pointer;
+            margin: 0px 3px;
+            padding: 2px 0px 2px 0px;
+            border-radius: 15px;
+        }
+        .modeButtonTxt {
+            /* border-color: var(--backColor); */
+            font-size: 0.9em;
+            /* white-space: nowrap; */
+            margin: 0px 4px;
+            padding: 1px 4px 2px 4px;
+        }
+        .logoDiv {
+            top:27px;
+            left: -110px;
+            margin: 0px 0px 5px 10px;
+        }
+        .logo {
+            transform: scale(0.2);
+        }
+        #mainDiv, #secondaryDiv {
+            margin: 0px 0px 5px 0px;
+            padding: 0;
+        }
+        
+        #displayQuestion {
+            flex-direction: column;
+            /* width: var(--smallDisplayWidth); */
+            height: auto;
+            width: auto;
+            padding: 0px 2px 0px;
+        }
+        .previousNoteDiv, .targetNoteDiv, .counterDiv, .cardDiv {
+            padding: 2px, 10px;
+        }
+        .cardNameDiv {
+            white-space: normal;
+            font-size: var(--tileSmallFontSize);
+            white-space: normal;
+            padding: 0px;
+        }
+
+        .counterDiv, .previousNoteDiv, .targetNoteDiv {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 2px, 10px;
+        }
+
+        .counterNumberDiv {
+            padding: 0px;
+        }
+
+        .intervalSusContainer{
+            flex-direction: column;
+            align-items: center;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .intervalButtonContainer {
+            /* margin: 7px 0px 3px 0px; */
+        }
+        #answerButtonsDiv {
+            flex-direction: column;
+            align-items: center;
+        }
+        .tiretDiv, .arrowDiv {
+            padding: 2px 0px 0px;
+            width: auto;
+            height: auto;
+        }
+        .commentLabels {
+            justify-content: center;
+        }
+        #playAndNavDiv {
+            flex-direction: column;
+            align-items: center;
+            /* width: var(--smallDisplayWidth); */
+        }
+        #navButtonsDiv {
+            padding: 0px 2px;
+        }
+        .buttonType1 {
+            padding: 0px 8px;
+        }
+        .restart {
+            margin: 0px 6px 0px 2px;
+        }
+        #scoreDiv{
+            margin: 2px 0px 8px 0px;
+        }
+        #settingsDiv {
+            flex-direction: column;
+            align-items: center;
+            /* width: var(--smallDisplayWidth); */
+            margin-top: 0px;
+        }
+        #registerContainer {
+            margin-top: 10px;
+        }
+        .previousNoteDiv, .targetNoteDiv, .counterDiv, .arrowDiv, .octaveTranspoDiv, .arrowDiv, #cardDiv{
+            width: var(--smallTileWidth);
+        }
+        #manualTxtDiv {
+            white-space: normal;
+        }
+        .options {
+            margin: 12px 0px 0px 0px;
+        }
+        /* .optionCheck {
+            margin-left: 20px;
+        } */
+        #soundSelectFieldSet{
+            margin-top: 13px;
+        }
+        #decSpeedDiv {
+            margin-left: 2px;
+        }
+    }

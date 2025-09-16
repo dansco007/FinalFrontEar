@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!--  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alfa+One|Open+Sans"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./earCards.css">
+    <title>Ear Cards</title>
+    <link rel="icon" href="faviconIMEP.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="titres">
+        <div id="title1">FINAL FRONT EAR</div>
+        <div id="title2">
+            <div id="modeButton1Div" class="modeButton">
+                <div id="modeButton1TxtDiv" class="modeButtonTxt">
+                    Singing Cards
+                </div>
+            </div>
+            <div id="modeButton2Div" class="modeButton">
+                <div id="modeButton2TxtDiv" class="modeButtonTxt">
+                    Interval Dict.
+                </div>
+            </div>       
+            <div id="modeButton3Div" class="modeButton currentMode">
+                <div id="modeButton3TxtDiv" class="modeButtonTxt">
+                    Scale Id.
+                </div>
+            </div>  
+            <div id="modeButton4Div" class="modeButton">
+                <div id="modeButton4TxtDiv" class="modeButtonTxt">
+                    Chord Id.
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div id="logoDiv" class = "logoDiv">
+        <div id="logo" class="logo">
+            <img id="logoImg" src="./logo.png">
+        </div>
+    </div>
+    
+
+    <div id="mainDiv">
+        <div id="pickDiv">
+            <div id="buttonPickDiv">
+                <button id="pickCardButton" deactivated class="pickCardButton" role="button">Hold on...</button>
+            </div>   
+            <div id="buttonHearAgainDiv">
+                <button id="buttonHearAgain" class="buttonHearAgain" role="button">Hear again</button>
+            </div>  
+        </div>        
+        <div id="displayQuestion">
+            <div id="counterDiv" class="counterDiv">
+                <div id="libDivCounter" class="labels"> Step </div>
+                <div id="counterNumberDiv" class="counterNumberDiv">0</div>
+            </div>
+            <div id="prevNoteDiv" class="previousNoteDiv">
+                <div id="libDivPrevNote" class="labels"> Central note </div>
+                <div id="prevNameDiv" class="prevNameDiv"> 
+                <div id="prevNoteTxtDiv" class="noteNameDiv"> </div>
+                </div>
+            </div>
+            <div id="cardDiv" class="cardDiv">
+                <div id="libcardDiv" class="labels"> Scale </div>
+                <div id="cardNameDiv" class="cardNameDiv"></div>
+                <div id="scaleStructureDiv" class="scaleStructureDiv"></div>
+            </div>   
+        </div>
+        <div id="answersDiv">
+            <div id = "answerButtonsDiv">
+                <divIntContainer1 class= "intervalSusContainer">
+                    <div id= "IntContainer1" class= "intervalButtonContainer">
+                        <div id="answerButtonDiv_5">
+                            <button id="answerButton_5" class="answerButton deactivated" value=5>Lydian</button>
+                        </div>
+                        <div id="answerButtonDiv_1">
+                            <button id="answerButton_1" class="answerButton deactivated" value=1>Major (Ionian)</button>
+                        </div>
+                        <div id="answerButtonDiv_6">
+                            <button id="answerButton_6" class="answerButton deactivated" value=6>Mixolydian</button>
+                        </div>
+                    </div>
+                    <div id= "IntContainer2" class= "intervalButtonContainer">
+                        <div id="answerButtonDiv_2">
+                            <button id="answerButton_2" class="answerButton deactivated" value=2>Nat. Minor (Eolian)</button>
+                        </div>
+                        <div id="answerButtonDiv_3">
+                            <button id="answerButton_3" class="answerButton deactivated" value=3>Harm. Minor</button>
+                        </div>
+                        <div id="answerButtonDiv_4">
+                            <button id="answerButton_4" class="answerButton deactivated" value=4>Mel. Minor</button>
+                        </div>
+                    </div>
+                </divIntContainer1>
+                <divIntContainer2 class= "intervalSusContainer">
+                    <div id= "IntContainer3" class= "intervalButtonContainer">
+                        <div id="answerButtonDiv_7">
+                            <button id="answerButton_7" class="answerButton deactivated" value=7>Dorian</button>
+                        </div>
+                        <div id="answerButtonDiv_8">
+                            <button id="answerButton_8" class="answerButton deactivated" value=8>Phrygian</button>
+                        </div>
+                        <div id="answerButtonDiv_9">
+                            <button id="answerButton_9" class="answerButton deactivated" value=9>Locrian</button>
+                        </div>
+                    </div>
+                    <div id= "IntContainer4" class= "intervalButtonContainer">
+                        <div id="answerButtonDiv_10">
+                            <button id="answerButton_10" class="answerButton deactivated" value=10>Lydian aug.</button>
+                        </div>
+                        <div id="answerButtonDiv_11">
+                            <button id="answerButton_11" class="answerButton deactivated" value=11>Lydian dom.</button>
+                        </div>
+                        <div id="answerButtonDiv_12">
+                            <button id="answerButton_12" class="answerButton deactivated" value=12>Mixolydian ♭6</button>
+                        </div>
+                    </div>
+                    <div id= "IntContainer5" class= "intervalButtonContainer">
+                        <div id="answerButtonDiv_13">
+                            <button id="answerButton_13" class="answerButton deactivated" value=13>Phrygian ♮6</button>
+                        </div>
+                        <div id="answerButtonDiv_14">
+                            <button id="answerButton_14" class="answerButton deactivated" value=14>Locrian ♮2.</button>
+                        </div>
+                        <div id="answerButtonDiv_15">
+                            <button id="answerButton_15" class="answerButton deactivated" value=15>Altered</button>
+                        </div>
+                    </div>
+                </divIntContainer2>
+
+            </div>
+        </div> 
+        <!-- <div id="separator2" class="separator1"></div> -->
+        <div id="playAndNavDiv">
+            <div id ="scoreDiv" class="scoreDiv tooltip">
+                <div id="scoreTxtDiv" class = "scoreTxt">Score : X on Y</div>
+                <div id="timeTxtDiv" class = "scoreTxt time">  in WW.Zs</div>
+                <span class="tooltiptext">Click for detailed statistics</span>
+            </div>
+            <div id="scoreAnalysisOverlayedDiv" class="hidden">
+                <div id="popup">
+                    <span id="closePopup">&times;</span>
+                    <div id="popupTitleDiv"> 
+                    </div>
+                    <div id="popupContentDiv"> 
+                        <div id="popupContentTxtDiv"></div>
+                    </div>
+                </div>
+            </div>
+            <div id = "navButtonsDiv">
+                <div id="buttonFirstDiv">
+                    <button id="buttonFirst" class="buttonType1 nav">⇤</button>
+                </div>
+                <div id="buttonPreviousDiv">
+                    <button id="buttonPrevious" class="buttonType1 nav">←</button>
+                </div>
+                <div id="buttonNextDiv">
+                    <button id="buttonNext" class="buttonType1 nav">→</button>
+                </div>
+                <div id="buttonLastDiv">
+                    <button id="buttonLast" class="buttonType1 nav">⇥</button>
+                </div>
+                <div id="buttonRestartDiv">
+                    <button id="buttonRestart" class="buttonType1 nav restart">Reset</button>
+                </div>
+            </div>
+
+        </div>
+    </Div>
+    <div id="secondaryDiv">
+        <div id="settingsDiv">
+            <div id="registerBinaryDiv" class="binaryContainer">
+                <div id="buttonShowRegisterDiv">
+                    <button id="buttonShowRegister" class="buttonType1 showSetting activated">Set register</button>
+                </div>
+                <div id= "registerContainer">
+                    <fieldset id="registerFieldSet" class="settingFieldset">
+                        <legend>Register limits</legend>
+                        <div id="register" class="register">
+                            <div id="lowLimitDiv" class="registerLimits">
+                                <div id="lowLimitlabelDiv" class="registerLabels"> Low </div>
+                                <div id="incLowLimitDiv" class="registerButtonLimitDiv">
+                                    <div id="incLowLimitTxtDiv" class="limitButtonTxtDiv"> + </div>
+                                </div>
+                                <div id="lowLimitNoteDiv" class="registerNoteDiv">
+                                    <div id="lowLimitNoteNameDiv" class="registerNoteNameDiv"></div>
+                                </div>
+                                <div id="decLowLimitDiv" class="registerButtonLimitDiv">
+                                    <div id="decLowLimitTxtDiv" class="limitButtonTxtDiv"> - </div>
+                                </div>
+                            </div> 
+                            <!-- <div id="separator2" class="separator1"></div> -->
+                            <div id="highLimitDiv" class="registerLimits">
+                                <div id="highLimitlabelDiv" class="registerLabels"> High </div>
+                                <div id="incHighLimitDiv" class="registerButtonLimitDiv">
+                                    <div id="incHighLimitTxtDiv" class="limitButtonTxtDiv"> + </div>
+                                </div>
+                                <div id="highLimitNoteDiv" class="registerNoteDiv">  
+                                    <div id="highLimitNoteNameDiv" class="registerNoteNameDiv">G</div>
+                                </div>
+                                <div id="decHighLimitDiv" class="registerButtonLimitDiv">
+                                    <div id="decHighLimitTxtDiv" class="limitButtonTxtDiv"> - </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div id="registerMsgDiv" class="registerMsgDiv">
+                            <div id="registerMsgTxtDiv">→ Register must be at least two octaves wide</div>
+                        </div>
+                        <div id="respectLILContainer" style = "display:flex; justify-content:center; width:100px">
+                            <div id="LilSpacer" style = "height:15px; width:1px; background-color:white"> </div>
+                            <div id="respectLILDiv" class="respectLIL">
+                                <input type="checkbox" id="respectLILChk" checked>
+                                <label for="respectLILChk">Respect low interval limits</label>
+                            </div>
+                        </div>
+                        <!-- <div id="buttonCloseRegisterDiv" class = "buttonCloseDiv right">
+                            <button id="buttonCloseRegister" class="buttonType1 close activated">x</button>
+                        </div> -->
+                        <span id="buttonCloseRegister" class="closeFieldSet">&times;</span>
+                    </fieldset>
+                </div>
+            </div>
+            <div id="focusSelectionDiv">
+                <fieldset id="configFieldSet" class="settingFieldset" style="width:140px">
+                    <legend>Select your work focus</legend>
+                    <div class="checkbox-column">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="majMinChk" class="nativeCheckbox" checked>
+                            <span class="checkmark"></span>
+                            <span class="customChkLabelText">Major & minor scales</span>
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="majModesChk" class="nativeCheckbox">
+                            <span class="checkmark"></span>
+                            <span class="customChkLabelText">Major Modes</span>
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="altModesChk" class="nativeCheckbox">
+                            <span class="checkmark"></span>
+                            <span class="customChkLabelText">Altered Modes</span>
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="ascendingChk" class="nativeCheckbox" checked>
+                            <span class="checkmark"></span>
+                            <span class="customChkLabelText">Ascending</span>
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="descendingChk" class="nativeCheckbox">
+                            <span class="checkmark"></span>
+                            <span class="customChkLabelText">Descending</span>
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="allChk" class="nativeCheckbox">
+                            <span class="checkmark"></span>
+                            <span class="customChkLabelText">All</span>
+                        </label>
+                        <!-- <div>
+                            <input type="checkbox" id="majMinChk" class="checkBox" unchecked>
+                            <label for="majMinChk">Major & minor scales</label>
+                        </div> -->
+                        <!-- <div>
+                            <input type="checkbox" id="majModesChk" class="checkBox" checked>
+                            <label for="majModesChk">Major Modes</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="altModesChk" class="checkBox" checked>
+                            <label for="altModesChk">Altered Modes</label>
+                        </div> -->
+                        <!-- <div>
+                            <input type="checkbox" id="ascendingChk" class="checkBox" checked>
+                            <label for="ascendingChk">Ascending</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="descendingChk" class="checkBox" unchecked>
+                            <label for="descendingChk">Descending</label>
+                        </div> -->
+                        <!-- <div>
+                            <input type="checkbox" id="allChk">
+                            <label for="allChk">All</label>
+                        </div> -->
+                    </div>
+                </fieldset>
+            </div>
+            <div id="soundAndOptionsDiv">               
+                <div id="optionsDiv" class="options">
+                    <div id="tempoDiv" class="tempo">
+                        <div id="autoPlayChkDiv" class="optionCheck">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="autoPlayChk" class="nativeCheckbox">
+                                <span class="checkmark"></span>
+                                <span class="customChkLabelText">Autoplay</span>
+                            </label>
+                            <!-- <input type="checkbox" id="autoPlayChk">
+                            <label for="autoPlayChk">Autoplay</label> -->
+                        </div>
+                        <div id="tempoSettingDiv" class="optionSettingDiv">
+                            <div id="tempoLabel" class="optionSettingLabel"></div>
+                            <div id="decTempoDiv" class="tempoButtonDiv">
+                                <div id="decTempoTxtDiv" class="tempoButtonTxtDiv"> – </div>
+                            </div>
+                            <div id="tempoBpmDiv" class="tempoBpm">
+                                <div id="tempoTxtDiv">60 bpm</div>
+                            </div>
+                            <div id="incTempoDiv" class="tempoButtonDiv">
+                                <div id="incTempoTxtDiv" class="tempoButtonTxtDiv"> + </div>
+                            </div>
+                        </div>  
+                    </div>
+                    <div id="showCardChkDiv" class="optionCheck">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="showCardChk" class="nativeCheckbox" checked>
+                            <span class="checkmark"></span>
+                            <span class="customChkLabelText">Show scale</span>
+                        </label>
+                        <!-- <input type="checkbox" id="showCardChk">
+                        <label for="showCardChk">Show scale</label> -->
+                    </div>
+                    <div id="answerRequiredDiv" class="optionCheck">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="answerRequiredChk" class="nativeCheckbox">
+                            <span class="checkmark"></span>
+                            <span class="customChkLabelText">Answer required for next step</span>
+                        </label>
+                        <!-- <input type="checkbox" id="answerRequiredChk" checked>
+                        <label for="answerRequiredChk">Answer required for next step</label> -->
+                    </div>
+                    <div id="rightAnswerTrigDiv" class="optionCheck">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="rightAnswerTrigChk" class="nativeCheckbox" checked>
+                            <span class="checkmark"></span>
+                            <span class="customChkLabelText">Right answer triggers new interval</span>
+                        </label>
+                        <!-- <input type="checkbox" id="rightAnswerTrigChk">
+                        <label for="rightAnswerTrig">Right answer triggers new scale</label> -->
+                    </div>
+                    <div id="speedDiv" class="tempo" >
+                        <div id="invisibleSpeedChkDiv" class="optionCheck" style="visibility:hidden">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="invisibleSpeedChk" class="nativeCheckbox" checked>
+                                <span class="checkmark"></span>
+                                <span class="customChkLabelText">invisible</span>
+                            </label>
+                        </div>
+                        <div id="speedSettingDiv" class="optionSettingDiv">
+                            <div id="speedLabel" class="optionSettingLabel">Scale speed:</div>
+                            <div id="decSpeedDiv" class="tempoButtonDiv">
+                                <div id="decSpeedTxtDiv" class="tempoButtonTxtDiv"> – </div>
+                            </div>
+                            <div id="speedLevelDiv" class="tempoBpm">
+                                <div id="speedTxtDiv">L1</div>
+                            </div>
+                            <div id="incSpeedDiv" class="tempoButtonDiv">
+                                <div id="incSpeedTxtDiv" class="tempoButtonTxtDiv"> + </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <!-- <div id="speedSettingDiv" class="optionSettingDiv">
+                        <div id="speedLabel" class="optionSettingLabel">Scale speed</div>
+                        <div id="decSpeedDiv" class="tempoButtonDiv">
+                            <div id="decSpeedTxtDiv" class="tempoButtonTxtDiv"> – </div>
+                        </div>
+                        <div id="speedLevelDiv" class="tempoBpm">
+                            <div id="speedTxtDiv">L1</div>
+                        </div>
+                        <div id="incSpeedDiv" class="tempoButtonDiv">
+                            <div id="incSpeedTxtDiv" class="tempoButtonTxtDiv"> + </div>
+                        </div>
+                    </div>  -->
+                    <div id="noteSustainDiv" class="tempo" >
+                        <div id="invisibleNoteSustainChkDiv" class="optionCheck" style="visibility:hidden">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="noteSustainChk" class="nativeCheckbox" checked>
+                                <span class="checkmark"></span>
+                                <span class="customChkLabelText">invisible</span>
+                            </label>
+                        </div>
+                        <div id="noteSustainSettingDiv" class="optionSettingDiv">
+                            <div id="noteSustainLabel" class="optionSettingLabel">Notes sustain: </div>
+                            <div id="decNoteSustainDiv" class="tempoButtonDiv">
+                                <div id="decNoteSustainTxtDiv" class="tempoButtonTxtDiv"> – </div>
+                            </div>
+                            <div id="noteSustainInSDiv" class="tempoBpm">
+                                <div id="noteSustainInSTxtDiv">4 s</div>
+                            </div>
+                            <div id="incNoteSustainDiv" class="tempoButtonDiv">
+                                <div id="incNoteSustainDiv" class="tempoButtonTxtDiv"> + </div>
+                            </div>
+                        </div> 
+                    </div> 
+                </div>
+                <div><p>&nbsp;</p></div>
+                <div id="soundSelectBinaryDiv" class="binaryContainer">
+                    <div id="buttonShowSoundSelectDiv">
+                        <button id="buttonShowSoundSelect" class="buttonType1 showSetting activated">Sounds banks</button>
+                    </div>
+                    
+                    <div id="soundSelectionDiv">
+                        <fieldset id="soundSelectFieldSet" class="settingFieldset" style="width:170px">
+                            <legend>Select the sound bank</legend>
+                            <form id="soundSelectForm" action="">
+                                <div class="radioBut">
+                                    <input type="radio" class="custom-radio" name="soundBank" value="1">
+                                    <!-- <input id="rad0" name="soundBank" type="radio" value="1"><br> -->
+                                    <div class="radioButLabel">Piano (mf)</div>
+                                </div>
+                                <div class="radioBut">
+                                    <input type="radio" class="custom-radio" name="soundBank" value="2">
+                                    <!-- <input id="rad1" name="soundBank" type="radio" value="2"><br> -->
+                                    <div class="radioButLabel">Piano (pp)</div>
+                                </div>
+                                <div class="radioBut">
+                                    <input type="radio" class="custom-radio" name="soundBank" value="3">
+                                    <!-- <input id="rad2" name="soundBank" type="radio" value="3"><br> -->
+                                    <div class="radioButLabel">Bb clarinet</div>
+                                </div>
+                                <div class="radioBut">
+                                    <input type="radio" class="custom-radio" name="soundBank" value="4" checked>
+                                    <!-- <input id="rad3" name="soundBank" type="radio" value="4" checked><br> -->
+                                    <div class="radioButLabel">Guitar</div>
+                                </div>
+                                <div class="radioBut">
+                                    <input type="radio" class="custom-radio" name="soundBank" value="5">
+                                    <!-- <input id="rad4" name="soundBank" type="radio" value="5"><br> -->
+                                    <div class="radioButLabel">Vibraphone dampen</div>
+                                </div>
+                                <div class="radioBut">
+                                    <input type="radio" class="custom-radio" name="soundBank" value="6">
+                                    <!-- <input id="rad5" name="soundBank" type="radio" value="6"><br> -->
+                                    <div class="radioButLabel">Vibraphone sustain</div>
+                                </div>
+                                <div class="radioBut">
+                                    <input type="radio" class="custom-radio" name="soundBank" value="7">
+                                    <!-- <input id="rad3" name="soundBank" type="radio" value="7"><br> -->
+                                    <div class="radioButLabel">Tenor trombone</div>
+                                </div>
+                            </form>
+                            <!-- <div id="buttonCloseSoundSelectDiv" class = "buttonCloseDiv right">
+                                <button id="buttonCloseSoundSelect" class="buttonType1 close activated">x</button>
+                            </div> -->
+                            <span id="buttonCloseSoundSelect" class="closeFieldSet">&times;</span>
+                        </fieldset>
+                    </div>
+                    
+                </div>
+                
+            </div> 
+            
+        </div>
+        <div id="manualDiv">
+            <div id="manualTxtDiv">
+                <p>
+                    Define the desired register (optional).<br>
+                    Draw a first scale card and identify it.<br>
+                    And so on (with your personalized parameters)...<br>
+                    Replay the sequence to check your results.<br>
+                    Try the autoplay mode!
+                </p>
+                <p>
+                    <br>Copyright GvG 2025
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="init.js"></script>
+</body>
+</html>
+
+
